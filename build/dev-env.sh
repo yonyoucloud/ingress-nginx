@@ -51,7 +51,7 @@ if [[ ${HELM_VERSION} < "v3.0.0" ]]; then
   exit 1
 fi
 
-KUBE_CLIENT_VERSION=$(kubectl version --client --short | awk '{print $3}' | cut -d. -f2) || true
+KUBE_CLIENT_VERSION=$(kubectl version --client --short 2> /dev/null | awk '{if (NR==1){print $3}}' | cut -d. -f2) || true
 if [[ ${KUBE_CLIENT_VERSION} -lt 14 ]]; then
   echo "Please update kubectl to 1.15 or higher"
   exit 1
@@ -61,38 +61,38 @@ echo "[dev-env] building image"
 make build image
 docker tag "${REGISTRY}/controller:${TAG}" "${DEV_IMAGE}"
 
-export K8S_VERSION=${K8S_VERSION:-v1.19.4@sha256:796d09e217d93bed01ecf8502633e48fd806fe42f9d02fdd468b81cd4e3bd40b}
+# export K8S_VERSION=${K8S_VERSION:-v1.19.4@sha256:796d09e217d93bed01ecf8502633e48fd806fe42f9d02fdd468b81cd4e3bd40b}
 
-KIND_CLUSTER_NAME="ingress-nginx-dev"
+# KIND_CLUSTER_NAME="ingress-nginx-dev"
 
-if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
-echo "[dev-env] creating Kubernetes cluster with kind"
-cat <<EOF | kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config=-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-  kubeadmConfigPatches:
-  - |
-    kind: InitConfiguration
-    nodeRegistration:
-      kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
-        authorization-mode: "AlwaysAllow"
-  extraPortMappings:
-  - containerPort: 80
-    hostPort: 80
-    protocol: TCP
-  - containerPort: 443
-    hostPort: 443
-    protocol: TCP
-EOF
-else
-  echo "[dev-env] using existing Kubernetes kind cluster"
-fi
+# if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
+# echo "[dev-env] creating Kubernetes cluster with kind"
+# cat <<EOF | kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config=-
+# kind: Cluster
+# apiVersion: kind.x-k8s.io/v1alpha4
+# nodes:
+# - role: control-plane
+#   kubeadmConfigPatches:
+#   - |
+#     kind: InitConfiguration
+#     nodeRegistration:
+#       kubeletExtraArgs:
+#         node-labels: "ingress-ready=true"
+#         authorization-mode: "AlwaysAllow"
+#   extraPortMappings:
+#   - containerPort: 80
+#     hostPort: 80
+#     protocol: TCP
+#   - containerPort: 443
+#     hostPort: 443
+#     protocol: TCP
+# EOF
+# else
+#   echo "[dev-env] using existing Kubernetes kind cluster"
+# fi
 
-echo "[dev-env] copying docker images to cluster..."
-kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
+# echo "[dev-env] copying docker images to cluster..."
+# kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
 
 echo "[dev-env] deploying NGINX Ingress controller..."
 kubectl create namespace ingress-nginx &> /dev/null || true
@@ -122,6 +122,6 @@ cat <<EOF
 
 Kubernetes cluster ready and ingress-nginx listening in localhost using ports 80 and 443
 
-To delete the dev cluster execute: 'kind delete cluster --name ingress-nginx-dev'
+# To delete the dev cluster execute: 'kind delete cluster --name ingress-nginx-dev'
 
 EOF
