@@ -197,7 +197,8 @@ ensure-buildx:
 show-version:
 	echo -n $(TAG)
 
-PLATFORMS ?= amd64 arm arm64 s390x
+#PLATFORMS ?= amd64 arm arm64 s390x
+PLATFORMS ?= amd64 arm64
 
 EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
