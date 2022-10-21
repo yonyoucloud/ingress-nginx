@@ -121,6 +121,10 @@ func (b1 *Backend) Equal(b2 *Backend) bool {
 	if b1.LoadBalancing != b2.LoadBalancing {
 		return false
 	}
+	// CustomBackend setting
+	if b1.CustomBackend != b2.CustomBackend {
+		return false
+	}
 
 	match := compareEndpoints(b1.Endpoints, b2.Endpoints)
 	if !match {

@@ -29,11 +29,11 @@ export REGISTRY=${REGISTRY:-ingress-controller}
 
 DEV_IMAGE=${REGISTRY}/controller:${TAG}
 
-if ! command -v kind &> /dev/null; then
-  echo "kind is not installed"
-  echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
-  exit 1
-fi
+# if ! command -v kind &> /dev/null; then
+#   echo "kind is not installed"
+#   echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
+#   exit 1
+# fi
 
 if ! command -v kubectl &> /dev/null; then
   echo "Please install kubectl 1.15 or higher"
