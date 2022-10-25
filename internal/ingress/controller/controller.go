@@ -752,6 +752,11 @@ func (n *NGINXController) createUpstreams(data []*ingress.Ingress, du *ingress.B
 				}
 			}
 
+			// CustomBackend setting
+			if anns.CustomBackend != "" {
+				upstreams[defBackend].CustomBackend = anns.CustomBackend
+			}
+
 			if len(upstreams[defBackend].Endpoints) == 0 {
 				endps, err := n.serviceEndpoints(svcKey, ing.Spec.Backend.ServicePort.String())
 				upstreams[defBackend].Endpoints = append(upstreams[defBackend].Endpoints, endps...)
@@ -764,6 +769,7 @@ func (n *NGINXController) createUpstreams(data []*ingress.Ingress, du *ingress.B
 			if err != nil {
 				klog.Warningf("Error obtaining Service %q: %v", svcKey, err)
 			}
+
 			upstreams[defBackend].Service = s
 		}
 
@@ -829,6 +835,11 @@ func (n *NGINXController) createUpstreams(data []*ingress.Ingress, du *ingress.B
 				if err != nil {
 					klog.Warningf("Error obtaining Service %q: %v", svcKey, err)
 					continue
+				}
+
+				// CustomBackend setting
+				if anns.CustomBackend != "" {
+					upstreams[name].CustomBackend = anns.CustomBackend
 				}
 
 				upstreams[name].Service = s
@@ -1215,6 +1226,8 @@ func locationApplyAnnotations(loc *ingress.Location, anns *annotations.Ingress) 
 	loc.ModSecurity = anns.ModSecurity
 	loc.Satisfy = anns.Satisfy
 	loc.Mirror = anns.Mirror
+	// CustomBackend setting
+	loc.CustomBackend = anns.CustomBackend
 
 	loc.DefaultBackendUpstreamName = defUpstreamName
 }

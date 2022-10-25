@@ -37,6 +37,7 @@ import (
 	"k8s.io/ingress-nginx/internal/ingress/annotations/clientbodybuffersize"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/connection"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/cors"
+	"k8s.io/ingress-nginx/internal/ingress/annotations/custombackend"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/customhttperrors"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/defaultbackend"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/fastcgi"
@@ -113,6 +114,8 @@ type Ingress struct {
 	InfluxDB           influxdb.Config
 	ModSecurity        modsecurity.Config
 	Mirror             mirror.Config
+	// CustomBackend setting
+	CustomBackend string
 }
 
 // Extractor defines the annotation parsers to be used in the extraction of annotations
@@ -162,6 +165,8 @@ func NewAnnotationExtractor(cfg resolver.Resolver) Extractor {
 			"BackendProtocol":      backendprotocol.NewParser(cfg),
 			"ModSecurity":          modsecurity.NewParser(cfg),
 			"Mirror":               mirror.NewParser(cfg),
+			// CustomBackend setting
+			"CustomBackend": custombackend.NewParser(cfg),
 		},
 	}
 }

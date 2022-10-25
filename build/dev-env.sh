@@ -24,16 +24,16 @@ set -o pipefail
 
 DIR=$(cd $(dirname "${BASH_SOURCE}") && pwd -P)
 
-export TAG=1.0.0-dev
+export TAG=0.33.0-dev
 export REGISTRY=${REGISTRY:-ingress-controller}
 
 DEV_IMAGE=${REGISTRY}/nginx-ingress-controller:${TAG}
 
-if ! command -v kind &> /dev/null; then
-  echo "kind is not installed"
-  echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
-  exit 1
-fi
+# if ! command -v kind &> /dev/null; then
+#   echo "kind is not installed"
+#   echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
+#   exit 1
+# fi
 
 if ! command -v kubectl &> /dev/null; then
   echo "Please install kubectl 1.15 or higher"
@@ -50,7 +50,7 @@ if ! command -v helm &> /dev/null; then
   exit 1
 fi
 
-KUBE_CLIENT_VERSION=$(kubectl version --client --short | awk '{print $3}' | cut -d. -f2) || true
+KUBE_CLIENT_VERSION=$(kubectl version --client --short 2> /dev/null | awk '{if (NR==1){print $3}}' | cut -d. -f2) || true
 if [[ ${KUBE_CLIENT_VERSION} -lt 14 ]]; then
   echo "Please update kubectl to 1.15 or higher"
   exit 1
@@ -60,40 +60,40 @@ echo "[dev-env] building image"
 make build image
 docker tag "${REGISTRY}/nginx-ingress-controller:${TAG}" "${DEV_IMAGE}"
 
-export K8S_VERSION=${K8S_VERSION:-v1.18.0@sha256:0e20578828edd939d25eb98496a685c76c98d54084932f76069f886ec315d694}
+# export K8S_VERSION=${K8S_VERSION:-v1.18.0@sha256:0e20578828edd939d25eb98496a685c76c98d54084932f76069f886ec315d694}
 
-export DOCKER_CLI_EXPERIMENTAL=enabled
+# export DOCKER_CLI_EXPERIMENTAL=enabled
 
-KIND_CLUSTER_NAME="ingress-nginx-dev"
+# KIND_CLUSTER_NAME="ingress-nginx-dev"
 
-if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
-echo "[dev-env] creating Kubernetes cluster with kind"
-cat <<EOF | kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config=-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-  kubeadmConfigPatches:
-  - |
-    kind: InitConfiguration
-    nodeRegistration:
-      kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
-        authorization-mode: "AlwaysAllow"
-  extraPortMappings:
-  - containerPort: 80
-    hostPort: 80
-    protocol: TCP
-  - containerPort: 443
-    hostPort: 443
-    protocol: TCP
-EOF
-else
-  echo "[dev-env] using existing Kubernetes kind cluster"
-fi
+# if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
+# echo "[dev-env] creating Kubernetes cluster with kind"
+# cat <<EOF | kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config=-
+# kind: Cluster
+# apiVersion: kind.x-k8s.io/v1alpha4
+# nodes:
+# - role: control-plane
+#   kubeadmConfigPatches:
+#   - |
+#     kind: InitConfiguration
+#     nodeRegistration:
+#       kubeletExtraArgs:
+#         node-labels: "ingress-ready=true"
+#         authorization-mode: "AlwaysAllow"
+#   extraPortMappings:
+#   - containerPort: 80
+#     hostPort: 80
+#     protocol: TCP
+#   - containerPort: 443
+#     hostPort: 443
+#     protocol: TCP
+# EOF
+# else
+#   echo "[dev-env] using existing Kubernetes kind cluster"
+# fi
 
-echo "[dev-env] copying docker images to cluster..."
-kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
+# echo "[dev-env] copying docker images to cluster..."
+# kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
 
 echo "[dev-env] deploying NGINX Ingress controller..."
 kubectl create namespace ingress-nginx &> /dev/null || true

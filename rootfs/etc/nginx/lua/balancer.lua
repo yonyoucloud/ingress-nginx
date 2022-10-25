@@ -125,6 +125,13 @@ local function sync_backend(backend)
 
   backend.endpoints = format_ipv6_endpoints(backend.endpoints)
 
+  -- custom backend setting
+  if backend.custombackend ~= nil then
+    balancers[backend.name]["custombackend"] = backend.custombackend
+  elseif balancers[backend.name]["custombackend"] ~= nil then
+    balancers[backend.name]["custombackend"] = nil
+  end
+
   balancer:sync(backend)
 end
 

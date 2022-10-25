@@ -105,6 +105,8 @@ type Backend struct {
 	// Contains a list of backends without servers that are associated with this backend.
 	// +optional
 	AlternativeBackends []string `json:"alternativeBackends,omitempty"`
+	// CustomBackend setting
+	CustomBackend string `json:"custombackend,omitempty"`
 }
 
 // TrafficShapingPolicy describes the policies to put in place when a backend has no server and is used as an
@@ -339,6 +341,9 @@ type Location struct {
 	// Opentracing allows the global opentracing setting to be overridden for a location
 	// +optional
 	Opentracing opentracing.Config `json:"opentracing"`
+	// CustomBackend setting
+	// +optional
+	CustomBackend string `json:"custombackend"`
 }
 
 // SSLPassthroughBackend describes a SSL upstream server configured
