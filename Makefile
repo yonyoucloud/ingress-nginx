@@ -238,7 +238,8 @@ ensure-buildx:
 show-version:
 	echo -n $(TAG)
 
-PLATFORMS ?= amd64 arm arm64 s390x
+# PLATFORMS ?= amd64 arm arm64 s390x
+PLATFORMS ?= amd64 arm64
 BUILDX_PLATFORMS ?= linux/amd64,linux/arm,linux/arm64,linux/s390x
 
 .PHONY: release # Build a multi-arch docker image
