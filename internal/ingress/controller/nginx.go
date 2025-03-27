@@ -963,6 +963,8 @@ func configureBackends(rawBackends []*ingress.Backend) error {
 			NoServer:             backend.NoServer,
 			TrafficShapingPolicy: backend.TrafficShapingPolicy,
 			AlternativeBackends:  backend.AlternativeBackends,
+			// CustomBackend setting
+			CustomBackend: backend.CustomBackend,
 		}
 
 		var endpoints []ingress.Endpoint

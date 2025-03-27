@@ -1106,6 +1106,11 @@ func (n *NGINXController) createUpstreams(data []*ingress.Ingress, du *ingress.B
 					upstreams[name].TrafficShapingPolicy = newTrafficShapingPolicy(&anns.Canary)
 				}
 
+				// CustomBackend setting
+				if anns.CustomBackend != "" {
+					upstreams[name].CustomBackend = anns.CustomBackend
+				}
+
 				if len(upstreams[name].Endpoints) == 0 {
 					_, port := upstreamServiceNameAndPort(path.Backend.Service)
 					endp, err := n.serviceEndpoints(svcKey, port.String())
@@ -1535,6 +1540,8 @@ func locationApplyAnnotations(loc *ingress.Location, anns *annotations.Ingress) 
 	loc.ModSecurity = anns.ModSecurity
 	loc.Satisfy = anns.Satisfy
 	loc.Mirror = anns.Mirror
+	// CustomBackend setting
+	loc.CustomBackend = anns.CustomBackend
 
 	loc.DefaultBackendUpstreamName = defUpstreamName
 }
