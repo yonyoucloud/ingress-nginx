@@ -122,6 +122,11 @@ func (b *Backend) Equal(newB *Backend) bool {
 		return false
 	}
 
+	// CustomBackend setting
+	if b.CustomBackend != newB.CustomBackend {
+		return false
+	}
+
 	match := compareEndpoints(b.Endpoints, newB.Endpoints)
 	if !match {
 		return false

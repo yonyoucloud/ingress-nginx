@@ -103,6 +103,9 @@ type Backend struct {
 	// Contains a list of backends without servers that are associated with this backend.
 	// +optional
 	AlternativeBackends []string `json:"alternativeBackends,omitempty"`
+	// CustomBackend setting
+	// +optional
+	CustomBackend string `json:"custombackend"`
 }
 
 // TrafficShapingPolicy describes the policies to put in place when a backend has no server and is used as an
@@ -363,6 +366,9 @@ type Location struct {
 	// Opentelemetry allows the global opentelemetry setting to be overridden for a location
 	// +optional
 	Opentelemetry opentelemetry.Config `json:"opentelemetry"`
+	// CustomBackend setting
+	// +optional
+	CustomBackend string `json:"custombackend"`
 }
 
 // SSLPassthroughBackend describes a SSL upstream server configured

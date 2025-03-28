@@ -29,11 +29,11 @@ export REGISTRY=${REGISTRY:-ingress-controller}
 
 DEV_IMAGE=${REGISTRY}/controller:${TAG}
 
-if ! command -v kind &> /dev/null; then
-  echo "kind is not installed"
-  echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
-  exit 1
-fi
+#if ! command -v kind &> /dev/null; then
+#  echo "kind is not installed"
+#  echo "Use a package manager (i.e 'brew install kind') or visit the official site https://kind.sigs.k8s.io"
+#  exit 1
+#fi
 
 if ! command -v kubectl &> /dev/null; then
   echo "Please install kubectl 1.24.0 or higher"
@@ -66,17 +66,17 @@ docker tag "${REGISTRY}/controller:${TAG}" "${DEV_IMAGE}"
 
 export K8S_VERSION=${K8S_VERSION:-v1.32.3@sha256:b36e76b4ad37b88539ce5e07425f77b29f73a8eaaebf3f1a8bc9c764401d118c}
 
-KIND_CLUSTER_NAME="ingress-nginx-dev"
-
-if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
-  echo "[dev-env] creating Kubernetes cluster with kind"
-  kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config ${DIR}/kind.yaml
-else
-  echo "[dev-env] using existing Kubernetes kind cluster"
-fi
-
-echo "[dev-env] copying docker images to cluster..."
-kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
+#KIND_CLUSTER_NAME="ingress-nginx-dev"
+#
+#if ! kind get clusters -q | grep -q ${KIND_CLUSTER_NAME}; then
+#  echo "[dev-env] creating Kubernetes cluster with kind"
+#  kind create cluster --name ${KIND_CLUSTER_NAME} --image "kindest/node:${K8S_VERSION}" --config ${DIR}/kind.yaml
+#else
+#  echo "[dev-env] using existing Kubernetes kind cluster"
+#fi
+#
+#echo "[dev-env] copying docker images to cluster..."
+#kind load docker-image --name="${KIND_CLUSTER_NAME}" "${DEV_IMAGE}"
 
 echo "[dev-env] deploying NGINX Ingress controller..."
 kubectl create namespace ingress-nginx &> /dev/null || true

@@ -34,6 +34,7 @@ import (
 	"k8s.io/ingress-nginx/internal/ingress/annotations/clientbodybuffersize"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/connection"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/cors"
+	"k8s.io/ingress-nginx/internal/ingress/annotations/custombackend"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/customheaders"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/customhttperrors"
 	"k8s.io/ingress-nginx/internal/ingress/annotations/defaultbackend"
@@ -118,6 +119,8 @@ type Ingress struct {
 	Mirror                      mirror.Config
 	StreamSnippet               string
 	Allowlist                   ipallowlist.SourceRange
+	// CustomBackend setting
+	CustomBackend string
 }
 
 // Extractor defines the annotation parsers to be used in the extraction of annotations
@@ -168,6 +171,8 @@ func NewAnnotationFactory(cfg resolver.Resolver) map[string]parser.IngressAnnota
 		"ModSecurity":                 modsecurity.NewParser(cfg),
 		"Mirror":                      mirror.NewParser(cfg),
 		"StreamSnippet":               streamsnippet.NewParser(cfg),
+		// CustomBackend setting
+		"CustomBackend": custombackend.NewParser(cfg),
 	}
 }
 
