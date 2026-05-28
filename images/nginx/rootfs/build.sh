@@ -220,7 +220,7 @@ get_src a98b48947359166326d58700ccdc27256d2648218072da138ab6b47de47fbd8f \
 # patch ngx_http_substitutions_filter_module for PCRE2 compatibility (nginx 1.25+)
 sed -i \
   's/pcre_fullinfo(re->code, NULL, PCRE_INFO_CAPTURECOUNT, \&n)/pcre2_pattern_info(re, PCRE2_INFO_CAPTURECOUNT, \&n)/' \
-  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/ngx_http_subs_filter_module.c"
+  "$BUILD_PATH/ngx_http_substitutions_filter_module/ngx_http_subs_filter_module.c"
 
 get_src 32a42256616cc674dca24c8654397390adff15b888b77eb74e0687f023c8751b \
         "https://github.com/SpiderLabs/ModSecurity-nginx/archive/$MODSECURITY_VERSION.tar.gz" "ModSecurity-nginx"
@@ -287,9 +287,9 @@ get_src d74f86ada2329016068bc5a243268f1f555edd620b6a7d6ce89295e7d6cf18da \
 
 echo "=== Checking PCRE1 API usage in modules ==="
 grep -rn "pcre_fullinfo\|pcre_exec\|pcre_compile\|PCRE_INFO_" \
-  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/" \
-  "$BUILD_PATH/nginx-http-auth-digest-$NGINX_DIGEST_AUTH/" \
-  "$BUILD_PATH/nginx-influxdb-module-$NGINX_INFLUXDB_VERSION/" \
+  "$BUILD_PATH/ngx_http_substitutions_filter_module/" \
+  "$BUILD_PATH/nginx-http-auth-digest/" \
+  "$BUILD_PATH/nginx-influxdb-module/" \
   2>/dev/null || true
 echo "=== Check complete ==="
 
