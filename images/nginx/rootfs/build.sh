@@ -54,7 +54,7 @@ export LUA_STREAM_NGX_VERSION=v0.0.17
 export LUA_UPSTREAM_VERSION=ad49f606989f91a514a7568eb45deb2642dd3e86
 
 # Check for recent changes: https://github.com/openresty/lua-cjson/compare/2.1.0.13...openresty:master
-export LUA_CJSON_VERSION=v2.1.0.17
+export LUA_CJSON_VERSION=2.1.0.17
 
 # Check for recent changes: https://github.com/leev/ngx_http_geoip2_module/compare/a607a41a8115fecfc05b5c283c81532a3d605425...master
 export GEOIP2_VERSION=cbaa35461c62a99d2577e6bae3273492502d8769
