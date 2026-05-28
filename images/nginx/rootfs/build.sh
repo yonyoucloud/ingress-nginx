@@ -18,16 +18,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-export NGINX_VERSION=1.25.5
+export NGINX_VERSION=1.30.2
 
 # Check for recent changes: https://github.com/vision5/ngx_devel_kit/compare/v0.3.3...master
-export NDK_VERSION=v0.3.3
+export NDK_VERSION=v0.3.4
 
 # Check for recent changes: https://github.com/openresty/set-misc-nginx-module/compare/v0.33...master
 export SETMISC_VERSION=796f5a3e518748eb29a93bd450324e0ad45b704e
 
 # Check for recent changes: https://github.com/openresty/headers-more-nginx-module/compare/v0.37...master
-export MORE_HEADERS_VERSION=v0.37
+export MORE_HEADERS_VERSION=v0.39
 
 # Check for recent changes: https://github.com/atomx/nginx-http-auth-digest/compare/v1.0.0...atomx:master
 export NGINX_DIGEST_AUTH=v1.0.0
@@ -36,49 +36,49 @@ export NGINX_DIGEST_AUTH=v1.0.0
 export NGINX_SUBSTITUTIONS=e12e965ac1837ca709709f9a26f572a54d83430e
 
 # Check for recent changes: https://github.com/SpiderLabs/ModSecurity-nginx/compare/v1.0.3...master
-export MODSECURITY_VERSION=v1.0.3
+export MODSECURITY_VERSION=v1.0.4
 
 # Check for recent changes: https://github.com/SpiderLabs/ModSecurity/compare/v3.0.14...v3/master
-export MODSECURITY_LIB_VERSION=v3.0.14
+export MODSECURITY_LIB_VERSION=v3.0.15
 
 # Check for recent changes: https://github.com/coreruleset/coreruleset/compare/v4.10.0...main
-export OWASP_MODSECURITY_CRS_VERSION=v4.10.0
+export OWASP_MODSECURITY_CRS_VERSION=v4.26.0
 
 # Check for recent changes: https://github.com/openresty/lua-nginx-module/compare/v0.10.26``...master
-export LUA_NGX_VERSION=v0.10.26
+export LUA_NGX_VERSION=v0.10.29
 
 # Check for recent changes: https://github.com/openresty/stream-lua-nginx-module/compare/bea8a0c0de94cede71554f53818ac0267d675d63...master
-export LUA_STREAM_NGX_VERSION=bea8a0c0de94cede71554f53818ac0267d675d63
+export LUA_STREAM_NGX_VERSION=v0.0.17
 
 # Check for recent changes: https://github.com/openresty/lua-upstream-nginx-module/compare/8aa93ead98ba2060d4efd594ae33a35d153589bf...master
-export LUA_UPSTREAM_VERSION=542be0893543a4e42d89f6dd85372972f5ff2a36
+export LUA_UPSTREAM_VERSION=ad49f606989f91a514a7568eb45deb2642dd3e86
 
 # Check for recent changes: https://github.com/openresty/lua-cjson/compare/2.1.0.13...openresty:master
-export LUA_CJSON_VERSION=2.1.0.13
+export LUA_CJSON_VERSION=v2.1.0.17
 
 # Check for recent changes: https://github.com/leev/ngx_http_geoip2_module/compare/a607a41a8115fecfc05b5c283c81532a3d605425...master
-export GEOIP2_VERSION=a607a41a8115fecfc05b5c283c81532a3d605425
+export GEOIP2_VERSION=cbaa35461c62a99d2577e6bae3273492502d8769
 
 # Check for recent changes: https://github.com/openresty/luajit2/compare/v2.1-20240314...v2.1-agentzh
-export LUAJIT_VERSION=v2.1-20240314
+export LUAJIT_VERSION=v2.1-20260415
 
 # Check for recent changes: https://github.com/openresty/lua-resty-balancer/compare/1cd4363c0a239afe4765ec607dcfbbb4e5900eea...master
-export LUA_RESTY_BALANCER=1cd4363c0a239afe4765ec607dcfbbb4e5900eea
+export LUA_RESTY_BALANCER=v0.05
 
 # Check for recent changes: https://github.com/openresty/lua-resty-lrucache/compare/99e7578465b40f36f596d099b82eab404f2b42ed...master
-export LUA_RESTY_CACHE=99e7578465b40f36f596d099b82eab404f2b42ed
+export LUA_RESTY_CACHE=v0.15
 
 # Check for recent changes: https://github.com/openresty/lua-resty-core/compare/v0.1.27...master
-export LUA_RESTY_CORE=v0.1.28
+export LUA_RESTY_CORE=v0.1.32
 
 # Check for recent changes: https://github.com/cloudflare/lua-resty-cookie/compare/f418d77082eaef48331302e84330488fdc810ef4...master
 export LUA_RESTY_COOKIE_VERSION=f418d77082eaef48331302e84330488fdc810ef4
 
 # Check for recent changes: https://github.com/openresty/lua-resty-dns/compare/8bb53516e2933e61c317db740a9b7c2048847c2f...master
-export LUA_RESTY_DNS=8bb53516e2933e61c317db740a9b7c2048847c2f
+export LUA_RESTY_DNS=v0.23
 
 # Check for recent changes: https://github.com/ledgetech/lua-resty-http/compare/v0.17.1...master
-export LUA_RESTY_HTTP=v0.17.1
+export LUA_RESTY_HTTP=v0.17.2
 
 # Check for recent changes: https://github.com/openresty/lua-resty-lock/compare/v0.09...master
 export LUA_RESTY_LOCK=405d0bf4cbfa74d742c6ed3158d442221e6212a9
@@ -87,13 +87,13 @@ export LUA_RESTY_LOCK=405d0bf4cbfa74d742c6ed3158d442221e6212a9
 export LUA_RESTY_UPLOAD_VERSION=979372cce011f3176af3c9aff53fd0e992c4bfd3
 
 # Check for recent changes: https://github.com/openresty/lua-resty-string/compare/v0.15...master
-export LUA_RESTY_STRING_VERSION=6f1bc21d86daef804df3cc34d6427ef68da26844
+export LUA_RESTY_STRING_VERSION=v0.17
 
 # Check for recent changes: https://github.com/openresty/lua-resty-memcached/compare/v0.17...master
 export LUA_RESTY_MEMCACHED_VERSION=2f02b68bf65fa2332cce070674a93a69a6c7239b
 
 # Check for recent changes: https://github.com/openresty/lua-resty-redis/compare/v0.30...master
-export LUA_RESTY_REDIS_VERSION=8641b9f1b6f75cca50c90cf8ca5c502ad8950aa8
+export LUA_RESTY_REDIS_VERSION=v0.33
 
 # Check for recent changes: https://github.com/api7/lua-resty-ipmatcher/compare/v0.6.1...master
 export LUA_RESTY_IPMATCHER_VERSION=3e93c53eb8c9884efe939ef070486a0e507cc5be
@@ -102,13 +102,13 @@ export LUA_RESTY_IPMATCHER_VERSION=3e93c53eb8c9884efe939ef070486a0e507cc5be
 export LUA_RESTY_GLOBAL_THROTTLE_VERSION=v0.2.0
 
 # Check for recent changes: https://github.com/microsoft/mimalloc/compare/v2.1.7...master
-export MIMALOC_VERSION=v2.1.7
+export MIMALOC_VERSION=v3.3.2
 
 # Check for recent changes: https://github.com/open-telemetry/opentelemetry-cpp/compare/v1.18.0...main
-export OPENTELEMETRY_CPP_VERSION=v1.18.0
+export OPENTELEMETRY_CPP_VERSION=v1.27.0
 
 # Check for recent changes: https://github.com/open-telemetry/opentelemetry-proto/compare/v1.5.0...main
-export OPENTELEMETRY_PROTO_VERSION=v1.5.0
+export OPENTELEMETRY_PROTO_VERSION=v1.10.0
 
 export BUILD_PATH=/tmp/build
 
@@ -146,6 +146,7 @@ apk add \
   automake \
   openssl-dev \
   pcre-dev \
+  pcre2-dev \
   zlib-dev \
   linux-headers \
   libxslt-dev \
@@ -182,6 +183,7 @@ apk add \
   c-ares-dev \
   re2-dev \
   grpc-dev \
+  boost-dev \
   protobuf-dev
 
 # apk add -X http://dl-cdn.alpinelinux.org/alpine/edge/testing opentelemetry-cpp-dev
@@ -215,6 +217,10 @@ get_src f09851e6309560a8ff3e901548405066c83f1f6ff88aa7171e0763bd9514762b \
 
 get_src a98b48947359166326d58700ccdc27256d2648218072da138ab6b47de47fbd8f \
         "https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/$NGINX_SUBSTITUTIONS.tar.gz" "ngx_http_substitutions_filter_module"
+# patch ngx_http_substitutions_filter_module for PCRE2 compatibility (nginx 1.25+)
+sed -i \
+  's/pcre_fullinfo(re->code, NULL, PCRE_INFO_CAPTURECOUNT, \&n)/pcre2_pattern_info(re, PCRE2_INFO_CAPTURECOUNT, \&n)/' \
+  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/ngx_http_subs_filter_module.c"
 
 get_src 32a42256616cc674dca24c8654397390adff15b888b77eb74e0687f023c8751b \
         "https://github.com/SpiderLabs/ModSecurity-nginx/archive/$MODSECURITY_VERSION.tar.gz" "ModSecurity-nginx"
@@ -279,6 +285,14 @@ get_src 0fb790e394510e73fdba1492e576aaec0b8ee9ef08e3e821ce253a07719cf7ea \
 get_src d74f86ada2329016068bc5a243268f1f555edd620b6a7d6ce89295e7d6cf18da \
         "https://github.com/microsoft/mimalloc/archive/${MIMALOC_VERSION}.tar.gz" "mimalloc"
 
+echo "=== Checking PCRE1 API usage in modules ==="
+grep -rn "pcre_fullinfo\|pcre_exec\|pcre_compile\|PCRE_INFO_" \
+  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/" \
+  "$BUILD_PATH/nginx-http-auth-digest-$NGINX_DIGEST_AUTH/" \
+  "$BUILD_PATH/nginx-influxdb-module-$NGINX_INFLUXDB_VERSION/" \
+  2>/dev/null || true
+echo "=== Check complete ==="
+
 # improve compilation times
 CORES=$(($(grep -c ^processor /proc/cpuinfo) - 1))
 
@@ -322,9 +336,23 @@ cmake -B build -G Ninja -Wno-dev \
 # Git tuning
 git config --global --add core.compression -1
 
+git_clone() {
+  local retries=5
+  local count=0
+  until git clone "$@"; do
+    count=$((count + 1))
+    if [ $count -ge $retries ]; then
+      echo "git clone failed after $retries attempts"
+      exit 1
+    fi
+    echo "git clone failed, retrying in 5s... ($count/$retries)"
+    sleep 5
+  done
+}
+
 # Get Brotli source and deps
 cd "$BUILD_PATH"
-git clone --depth=100 https://github.com/google/ngx_brotli.git
+git_clone --depth=100 https://github.com/google/ngx_brotli.git
 cd ngx_brotli
 # https://github.com/google/ngx_brotli/issues/156
 git reset --hard 63ca02abdcf79c9e788d2eedcc388d2335902e52
@@ -332,7 +360,7 @@ git submodule init
 git submodule update
 
 cd "$BUILD_PATH"
-git clone --depth=1 https://github.com/ssdeep-project/ssdeep
+git_clone --depth=1 https://github.com/ssdeep-project/ssdeep
 cd ssdeep/
 
 ./bootstrap
@@ -343,11 +371,10 @@ make install
 
 # build modsecurity library
 cd "$BUILD_PATH"
-git clone -n https://github.com/SpiderLabs/ModSecurity
+git_clone -n https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity/
 git checkout $MODSECURITY_LIB_VERSION
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 sh build.sh
 
@@ -376,7 +403,7 @@ echo "SecAuditLogStorageDir /var/log/audit/" >> /etc/nginx/modsecurity/modsecuri
 # Download owasp modsecurity crs
 cd /etc/nginx/
 
-git clone -b $OWASP_MODSECURITY_CRS_VERSION https://github.com/coreruleset/coreruleset
+git_clone -b $OWASP_MODSECURITY_CRS_VERSION https://github.com/coreruleset/coreruleset
 mv coreruleset owasp-modsecurity-crs
 cd owasp-modsecurity-crs
 
@@ -390,8 +417,9 @@ echo "
 Include /etc/nginx/owasp-modsecurity-crs/crs-setup.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-901-INITIALIZATION.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-905-COMMON-EXCEPTIONS.conf
+Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-910-IP-REPUTATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-911-METHOD-ENFORCEMENT.conf
+Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-912-DOS-PROTECTION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-913-SCANNER-DETECTION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-920-PROTOCOL-ENFORCEMENT.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-921-PROTOCOL-ATTACK.conf
@@ -400,7 +428,7 @@ Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-930-APPLICATION-ATTACK-LF
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-931-APPLICATION-ATTACK-RFI.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-932-APPLICATION-ATTACK-RCE.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-933-APPLICATION-ATTACK-PHP.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-934-APPLICATION-ATTACK-GENERIC.conf
+Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-934-APPLICATION-ATTACK-NODEJS.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION.conf
@@ -411,8 +439,6 @@ Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-951-DATA-LEAKAGES-SQL.co
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-952-DATA-LEAKAGES-JAVA.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-953-DATA-LEAKAGES-PHP.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-954-DATA-LEAKAGES-IIS.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-955-WEB-SHELLS.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-959-BLOCKING-EVALUATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-980-CORRELATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
 " > /etc/nginx/owasp-modsecurity-crs/nginx-modsecurity.conf
@@ -534,7 +560,7 @@ make install
 export OPENTELEMETRY_CONTRIB_COMMIT=8933841f0a7f8737f61404cf0a64acf6b079c8a5
 cd "$BUILD_PATH"
 
-git clone https://github.com/open-telemetry/opentelemetry-cpp-contrib.git opentelemetry-cpp-contrib-${OPENTELEMETRY_CONTRIB_COMMIT}
+git_clone https://github.com/open-telemetry/opentelemetry-cpp-contrib.git opentelemetry-cpp-contrib-${OPENTELEMETRY_CONTRIB_COMMIT}
 
 cd ${BUILD_PATH}/opentelemetry-cpp-contrib-${OPENTELEMETRY_CONTRIB_COMMIT}
 git reset --hard ${OPENTELEMETRY_CONTRIB_COMMIT}
@@ -627,7 +653,8 @@ writeDirs=( \
   /var/log/nginx \
 );
 
-adduser -S -D -H -u 101 -h /usr/local/nginx -s /sbin/nologin -G www-data -g www-data www-data
+addgroup -S -g 101 www-data 2>/dev/null || true
+adduser -S -D -H -u 101 -h /usr/local/nginx -s /sbin/nologin -G www-data -g www-data www-data 2>/dev/null || true
 
 for dir in "${writeDirs[@]}"; do
   mkdir -p ${dir};
