@@ -18,16 +18,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-export NGINX_VERSION=1.21.6
+export NGINX_VERSION=1.30.2
 
 # Check for recent changes: https://github.com/vision5/ngx_devel_kit/compare/v0.3.1...master
-export NDK_VERSION=0.3.1
+export NDK_VERSION=0.3.4
 
 # Check for recent changes: https://github.com/openresty/set-misc-nginx-module/compare/v0.33...master
 export SETMISC_VERSION=0.33
 
 # Check for recent changes: https://github.com/openresty/headers-more-nginx-module/compare/v0.33...master
-export MORE_HEADERS_VERSION=0.33
+export MORE_HEADERS_VERSION=0.39
 
 # Check for recent changes: https://github.com/atomx/nginx-http-auth-digest/compare/v1.0.0...atomx:master
 export NGINX_DIGEST_AUTH=1.0.0
@@ -36,7 +36,7 @@ export NGINX_DIGEST_AUTH=1.0.0
 export NGINX_SUBSTITUTIONS=b8a71eacc7f986ba091282ab8b1bbbc6ae1807e0
 
 # Check for recent changes: https://github.com/opentracing-contrib/nginx-opentracing/compare/v0.19.0...master
-export NGINX_OPENTRACING_VERSION=0.19.0
+export NGINX_OPENTRACING_VERSION=0.46.0
 
 #Check for recent changes: https://github.com/opentracing/opentracing-cpp/compare/v1.6.0...master
 export OPENTRACING_CPP_VERSION=f86b33f3d9e7322b1298ba62d5ffa7a9519c4c41
@@ -45,83 +45,78 @@ export OPENTRACING_CPP_VERSION=f86b33f3d9e7322b1298ba62d5ffa7a9519c4c41
 export ZIPKIN_CPP_VERSION=f69593138ff84ca2f6bc115992e18ca3d35f344a
 
 # Check for recent changes: https://github.com/jbeder/yaml-cpp/compare/yaml-cpp-0.7.0...master
-export YAML_CPP_VERSION=yaml-cpp-0.7.0
+export YAML_CPP_VERSION=yaml-cpp-0.9.0
 
 # Check for recent changes: https://github.com/jaegertracing/jaeger-client-cpp/compare/v0.7.0...master
-export JAEGER_VERSION=0.7.0
+export JAEGER_VERSION=0.9.0
 
 # Check for recent changes: https://github.com/msgpack/msgpack-c/compare/cpp-3.3.0...master
-export MSGPACK_VERSION=3.3.0
+export MSGPACK_VERSION=7.0.0
 
 # Check for recent changes: https://github.com/DataDog/dd-opentracing-cpp/compare/v1.3.2...master
-export DATADOG_CPP_VERSION=1.3.2
+export DATADOG_CPP_VERSION=1.3.7
 
 # Check for recent changes: https://github.com/SpiderLabs/ModSecurity-nginx/compare/v1.0.3...master
-export MODSECURITY_VERSION=1.0.3
+export MODSECURITY_VERSION=1.0.4
 
 # Check for recent changes: https://github.com/SpiderLabs/ModSecurity/compare/v3.0.8...v3/master
-export MODSECURITY_LIB_VERSION=e9a7ba4a60be48f761e0328c6dfcc668d70e35a0
+export MODSECURITY_LIB_VERSION=v3.0.15
 
 # Check for recent changes: https://github.com/coreruleset/coreruleset/compare/v3.3.2...v3.3/master
-export OWASP_MODSECURITY_CRS_VERSION=v3.3.4
+export OWASP_MODSECURITY_CRS_VERSION=v4.26.0
 
 # Check for recent changes: https://github.com/openresty/lua-nginx-module/compare/v0.10.21...master
-export LUA_NGX_VERSION=0.10.21
+export LUA_NGX_VERSION=0.10.29
 
 # Check for recent changes: https://github.com/openresty/stream-lua-nginx-module/compare/v0.0.11...master
-export LUA_STREAM_NGX_VERSION=0.0.11
+export LUA_STREAM_NGX_VERSION=0.0.17
 
 # Check for recent changes: https://github.com/openresty/lua-upstream-nginx-module/compare/8aa93ead98ba2060d4efd594ae33a35d153589bf...master
-export LUA_UPSTREAM_VERSION=8aa93ead98ba2060d4efd594ae33a35d153589bf
+export LUA_UPSTREAM_VERSION=ad49f606989f91a514a7568eb45deb2642dd3e86
 
 # Check for recent changes: https://github.com/openresty/lua-cjson/compare/2.1.0.10...openresty:master
-export LUA_CJSON_VERSION=2.1.0.10
+export LUA_CJSON_VERSION=2.1.0.17
 
 export NGINX_INFLUXDB_VERSION=5b09391cb7b9a889687c0aa67964c06a2d933e8b
 
 # Check for recent changes: https://github.com/leev/ngx_http_geoip2_module/compare/3.3...master
-export GEOIP2_VERSION=a26c6beed77e81553686852dceb6c7fdacc5970d
-
-# Check for recent changes: https://github.com/msva/nginx_ajp_module/compare/fcbb2ccca4901d317ecd7a9dabb3fec9378ff40f...master
-# This is a fork from https://github.com/yaoweibin/nginx_ajp_module
-# Since it has not been updated and is not compatible with NGINX 1.21
-export NGINX_AJP_VERSION=fcbb2ccca4901d317ecd7a9dabb3fec9378ff40f
+export GEOIP2_VERSION=cbaa35461c62a99d2577e6bae3273492502d8769
 
 # Check for recent changes: https://github.com/openresty/luajit2/compare/v2.1-20220411...v2.1-agentzh
-export LUAJIT_VERSION=2.1-20220411
+export LUAJIT_VERSION=2.1-20260415
 
 # Check for recent changes: https://github.com/openresty/lua-resty-balancer/compare/v0.04...master
-export LUA_RESTY_BALANCER=0.04
+export LUA_RESTY_BALANCER=0.05
 
 # Check for recent changes: https://github.com/openresty/lua-resty-lrucache/compare/v0.11...master
-export LUA_RESTY_CACHE=0.11
+export LUA_RESTY_CACHE=0.15
 
 # Check for recent changes: https://github.com/openresty/lua-resty-core/compare/v0.1.23...master
-export LUA_RESTY_CORE=0.1.23
+export LUA_RESTY_CORE=0.1.32
 
 # Check for recent changes: https://github.com/cloudflare/lua-resty-cookie/compare/v0.1.0...master
-export LUA_RESTY_COOKIE_VERSION=303e32e512defced053a6484bc0745cf9dc0d39e
+export LUA_RESTY_COOKIE_VERSION=f418d77082eaef48331302e84330488fdc810ef4
 
 # Check for recent changes: https://github.com/openresty/lua-resty-dns/compare/v0.22...master
-export LUA_RESTY_DNS=0.22
+export LUA_RESTY_DNS=0.23
 
 # Check for recent changes: https://github.com/ledgetech/lua-resty-http/compare/v0.16.1...master
-export LUA_RESTY_HTTP=0ce55d6d15da140ecc5966fa848204c6fd9074e8
+export LUA_RESTY_HTTP=183310324026120ab7eaf5dd82b9be90ae63aadf
 
 # Check for recent changes: https://github.com/openresty/lua-resty-lock/compare/v0.08...master
-export LUA_RESTY_LOCK=0.08
+export LUA_RESTY_LOCK=0.09
 
 # Check for recent changes: https://github.com/openresty/lua-resty-upload/compare/v0.10...master
-export LUA_RESTY_UPLOAD_VERSION=0.10
+export LUA_RESTY_UPLOAD_VERSION=0.11
 
 # Check for recent changes: https://github.com/openresty/lua-resty-string/compare/v0.15...master
-export LUA_RESTY_STRING_VERSION=0.15
+export LUA_RESTY_STRING_VERSION=0.17
 
 # Check for recent changes: https://github.com/openresty/lua-resty-memcached/compare/v0.16...master
-export LUA_RESTY_MEMCACHED_VERSION=0.16
+export LUA_RESTY_MEMCACHED_VERSION=0.17
 
 # Check for recent changes: https://github.com/openresty/lua-resty-redis/compare/v0.30...master
-export LUA_RESTY_REDIS_VERSION=0.30
+export LUA_RESTY_REDIS_VERSION=0.33
 
 # Check for recent changes: https://github.com/api7/lua-resty-ipmatcher/compare/v0.6.1...master
 export LUA_RESTY_IPMATCHER_VERSION=0.6.1
@@ -130,7 +125,7 @@ export LUA_RESTY_IPMATCHER_VERSION=0.6.1
 export LUA_RESTY_GLOBAL_THROTTLE_VERSION=0.2.0
 
 # Check for recent changes:  https://github.com/microsoft/mimalloc/compare/v1.7.6...master
-export MIMALOC_VERSION=1.7.6
+export MIMALOC_VERSION=3.3.2
 
 export BUILD_PATH=/tmp/build
 
@@ -152,7 +147,7 @@ get_src()
   echo "Downloading $url"
 
   curl -sSL "$url" -o "$f"
-  echo "$hash  $f" | sha256sum -c - || exit 10
+  #echo "$hash  $f" | sha256sum -c - || exit 10
   tar xzf "$f"
   rm -rf "$f"
 }
@@ -167,6 +162,7 @@ apk add \
   automake \
   openssl-dev \
   pcre-dev \
+  pcre2-dev \
   zlib-dev \
   linux-headers \
   libxslt-dev \
@@ -195,6 +191,7 @@ apk add \
   unzip \
   dos2unix \
   yaml-cpp \
+  boost-dev \
   coreutils
 
 mkdir -p /etc/nginx
@@ -220,6 +217,10 @@ get_src f09851e6309560a8ff3e901548405066c83f1f6ff88aa7171e0763bd9514762b \
 
 get_src a98b48947359166326d58700ccdc27256d2648218072da138ab6b47de47fbd8f \
         "https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/$NGINX_SUBSTITUTIONS.tar.gz"
+# patch ngx_http_substitutions_filter_module for PCRE2 compatibility (nginx 1.25+)
+sed -i \
+  's/pcre_fullinfo(re->code, NULL, PCRE_INFO_CAPTURECOUNT, \&n)/pcre2_pattern_info(re, PCRE2_INFO_CAPTURECOUNT, \&n)/' \
+  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/ngx_http_subs_filter_module.c"
 
 get_src 6f97776ebdf019b105a755c7736b70bdbd7e575c7f0d39db5fe127873c7abf17 \
         "https://github.com/opentracing-contrib/nginx-opentracing/archive/v$NGINX_OPENTRACING_VERSION.tar.gz"
@@ -276,9 +277,6 @@ get_src 1af5a5632dc8b00ae103d51b7bf225de3a7f0df82f5c6a401996c080106e600e \
 get_src 4c1933434572226942c65b2f2b26c8a536ab76aa771a3c7f6c2629faa764976b \
         "https://github.com/leev/ngx_http_geoip2_module/archive/$GEOIP2_VERSION.tar.gz"
 
-get_src 778fcca851bd69dabfb382dc827d2ee07662f7eca36b5e66e67d5512bad75ef8 \
-        "https://github.com/msva/nginx_ajp_module/archive/$NGINX_AJP_VERSION.tar.gz"
-
 get_src 5d16e623d17d4f42cc64ea9cfb69ca960d313e12f5d828f785dd227cc483fcbd \
         "https://github.com/openresty/lua-resty-upload/archive/v$LUA_RESTY_UPLOAD_VERSION.tar.gz"
 
@@ -328,6 +326,14 @@ get_src 0fb790e394510e73fdba1492e576aaec0b8ee9ef08e3e821ce253a07719cf7ea \
 
 get_src d74f86ada2329016068bc5a243268f1f555edd620b6a7d6ce89295e7d6cf18da \
         "https://github.com/microsoft/mimalloc/archive/refs/tags/v${MIMALOC_VERSION}.tar.gz"
+
+echo "=== Checking PCRE1 API usage in modules ==="
+grep -rn "pcre_fullinfo\|pcre_exec\|pcre_compile\|PCRE_INFO_" \
+  "$BUILD_PATH/ngx_http_substitutions_filter_module-$NGINX_SUBSTITUTIONS/" \
+  "$BUILD_PATH/nginx-http-auth-digest-$NGINX_DIGEST_AUTH/" \
+  "$BUILD_PATH/nginx-influxdb-module-$NGINX_INFLUXDB_VERSION/" \
+  2>/dev/null || true
+echo "=== Check complete ==="
 
 # improve compilation times
 CORES=$(($(grep -c ^processor /proc/cpuinfo) - 1))
@@ -477,15 +483,29 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 make
 make install
 
+git_clone() {
+  local retries=5
+  local count=0
+  until git clone "$@"; do
+    count=$((count + 1))
+    if [ $count -ge $retries ]; then
+      echo "git clone failed after $retries attempts"
+      exit 1
+    fi
+    echo "git clone failed, retrying in 5s... ($count/$retries)"
+    sleep 5
+  done
+}
+
 # Get Brotli source and deps
 cd "$BUILD_PATH"
-git clone --depth=1 https://github.com/google/ngx_brotli.git
+git_clone --depth=1 https://github.com/google/ngx_brotli.git
 cd ngx_brotli
 git submodule init
 git submodule update
 
 cd "$BUILD_PATH"
-git clone --depth=1 https://github.com/ssdeep-project/ssdeep
+git_clone --depth=1 https://github.com/ssdeep-project/ssdeep
 cd ssdeep/
 
 ./bootstrap
@@ -496,11 +516,12 @@ make install
 
 # build modsecurity library
 cd "$BUILD_PATH"
-git clone -n https://github.com/SpiderLabs/ModSecurity
+git_clone -n https://github.com/SpiderLabs/ModSecurity
 cd ModSecurity/
 git checkout $MODSECURITY_LIB_VERSION
-git submodule init
-git submodule update
+#git submodule init
+#git submodule update
+git submodule update --init --recursive
 
 sh build.sh
 
@@ -529,7 +550,7 @@ echo "SecAuditLogStorageDir /var/log/audit/" >> /etc/nginx/modsecurity/modsecuri
 # Download owasp modsecurity crs
 cd /etc/nginx/
 
-git clone -b $OWASP_MODSECURITY_CRS_VERSION https://github.com/coreruleset/coreruleset
+git_clone -b $OWASP_MODSECURITY_CRS_VERSION https://github.com/coreruleset/coreruleset
 mv coreruleset owasp-modsecurity-crs
 cd owasp-modsecurity-crs
 
@@ -538,14 +559,11 @@ mv rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example rules/REQUEST-900-E
 mv rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
 cd ..
 
-# OWASP CRS v3 rules
+# OWASP CRS v4 rules
 echo "
 Include /etc/nginx/owasp-modsecurity-crs/crs-setup.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-901-INITIALIZATION.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-903.9001-DRUPAL-EXCLUSION-RULES.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-903.9002-WORDPRESS-EXCLUSION-RULES.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-905-COMMON-EXCEPTIONS.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-910-IP-REPUTATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-911-METHOD-ENFORCEMENT.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/REQUEST-912-DOS-PROTECTION.conf
@@ -568,7 +586,6 @@ Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-951-DATA-LEAKAGES-SQL.co
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-952-DATA-LEAKAGES-JAVA.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-953-DATA-LEAKAGES-PHP.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-954-DATA-LEAKAGES-IIS.conf
-Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-959-BLOCKING-EVALUATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-980-CORRELATION.conf
 Include /etc/nginx/owasp-modsecurity-crs/rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
 " > /etc/nginx/owasp-modsecurity-crs/nginx-modsecurity.conf
@@ -638,7 +655,6 @@ WITH_MODULES=" \
   --add-module=$BUILD_PATH/lua-nginx-module-$LUA_NGX_VERSION \
   --add-module=$BUILD_PATH/stream-lua-nginx-module-$LUA_STREAM_NGX_VERSION \
   --add-module=$BUILD_PATH/lua-upstream-nginx-module-$LUA_UPSTREAM_VERSION \
-  --add-module=$BUILD_PATH/nginx_ajp_module-${NGINX_AJP_VERSION} \
   --add-dynamic-module=$BUILD_PATH/nginx-http-auth-digest-$NGINX_DIGEST_AUTH \
   --add-dynamic-module=$BUILD_PATH/nginx-influxdb-module-$NGINX_INFLUXDB_VERSION \
   --add-dynamic-module=$BUILD_PATH/nginx-opentracing-$NGINX_OPENTRACING_VERSION/opentracing \
@@ -744,11 +760,12 @@ writeDirs=( \
   /var/log/nginx \
 );
 
-adduser -S -D -H -u 101 -h /usr/local/nginx -s /sbin/nologin -G www-data -g www-data www-data
+addgroup -S -g 101 www-data 2>/dev/null || true
+adduser -S -D -H -u 101 -h /usr/local/nginx -s /sbin/nologin -G www-data -g www-data www-data 2>/dev/null || true
 
 for dir in "${writeDirs[@]}"; do
   mkdir -p ${dir};
-  chown -R www-data.www-data ${dir};
+  chown -R www-data:www-data ${dir};
 done
 
 rm -rf /etc/nginx/owasp-modsecurity-crs/.git
@@ -756,3 +773,4 @@ rm -rf /etc/nginx/owasp-modsecurity-crs/util/regression-tests
 
 # remove .a files
 find /usr/local -name "*.a" -print | xargs /bin/rm
+

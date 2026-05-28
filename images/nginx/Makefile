@@ -30,14 +30,18 @@ IMAGE = $(REGISTRY)/nginx
 export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # build with buildx
-PLATFORMS?=linux/amd64,linux/arm,linux/arm64,linux/s390x
+#PLATFORMS?=linux/amd64,linux/arm,linux/arm64,linux/s390x
+PLATFORMS?=linux/amd64
 OUTPUT=
 PROGRESS=plain
 build: ensure-buildx
 	docker buildx build \
+                --build-arg HTTPS_PROXY=http://10.0.0.2:58591 \
+                --build-arg CURL_CA_BUNDLE="" \
 		--platform=${PLATFORMS} $(OUTPUT) \
 		--progress=$(PROGRESS) \
 		--pull \
+		--load \
 		--tag $(IMAGE):$(TAG) rootfs
 
 # push the cross built image

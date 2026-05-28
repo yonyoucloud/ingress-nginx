@@ -106,18 +106,4 @@ var _ = framework.DescribeAnnotation("backend-protocol", func() {
 			})
 	})
 
-	ginkgo.It("should set backend protocol to '' and use ajp_pass", func() {
-		host := "backendprotocol.foo.com"
-		annotations := map[string]string{
-			"nginx.ingress.kubernetes.io/backend-protocol": "AJP",
-		}
-
-		ing := framework.NewSingleIngress(host, "/", host, f.Namespace, framework.EchoService, 80, annotations)
-		f.EnsureIngress(ing)
-
-		f.WaitForNginxServer(host,
-			func(server string) bool {
-				return strings.Contains(server, "ajp_pass upstream_balancer;")
-			})
-	})
 })

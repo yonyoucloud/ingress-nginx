@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-FROM alpine:3.17.0 as builder
+FROM alpine:3.22.4 AS builder
 
 COPY . /
 
@@ -21,7 +21,7 @@ RUN apk update \
   && /build.sh
 
 # Use a multi-stage build
-FROM alpine:3.17.0
+FROM alpine:3.22.4
 
 ENV PATH=$PATH:/usr/local/luajit/bin:/usr/local/nginx/sbin:/usr/local/nginx/bin
 
@@ -38,6 +38,7 @@ RUN apk update \
   bash \
   openssl \
   pcre \
+  pcre2 \
   zlib \
   geoip \
   curl \
@@ -52,8 +53,9 @@ RUN apk update \
   nano \
   tzdata \
   && ln -s /usr/local/nginx/sbin/nginx /sbin/nginx \
+  && addgroup -S -g 101 www-data 2>/dev/null || true \
   && adduser -S -D -H -u 101 -h /usr/local/nginx \
-  -s /sbin/nologin -G www-data -g www-data www-data \
+  -s /sbin/nologin -G www-data -g www-data www-data 2>/dev/null || true \
   && bash -eu -c ' \
   writeDirs=( \
   /var/log/nginx \
@@ -66,7 +68,7 @@ RUN apk update \
   ); \
   for dir in "${writeDirs[@]}"; do \
   mkdir -p ${dir}; \
-  chown -R www-data.www-data ${dir}; \
+  chown -R www-data:www-data ${dir}; \
   done'
 
 EXPOSE 80 443

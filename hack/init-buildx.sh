@@ -54,4 +54,12 @@ fi
 
 # Ensure we use a builder that can leverage it (the default on linux will not)
 docker buildx rm ingress-nginx || true
-docker buildx create --use --name=ingress-nginx
+#docker buildx create --use --name=ingress-nginx --driver-opt network=host
+docker buildx create \
+  --name ingress-nginx \
+  --driver docker-container \
+  --driver-opt network=host \
+  --driver-opt env.HTTPS_PROXY="http://10.0.0.2:58591" \
+  --driver-opt env.HTTP_PROXY="http://10.0.0.2:58591" \
+  --driver-opt env.NO_PROXY="localhost;127.0.0.1" \
+  --use
