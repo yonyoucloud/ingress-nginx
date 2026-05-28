@@ -33,7 +33,7 @@ export MORE_HEADERS_VERSION=v0.39
 export NGINX_DIGEST_AUTH=v1.0.0
 
 # Check for recent changes: https://github.com/yaoweibin/ngx_http_substitutions_filter_module/compare/v0.6.4...master
-export NGINX_SUBSTITUTIONS=e12e965ac1837ca709709f9a26f572a54d83430e
+export NGINX_SUBSTITUTIONS=b8a71eacc7f986ba091282ab8b1bbbc6ae1807e0
 
 # Check for recent changes: https://github.com/SpiderLabs/ModSecurity-nginx/compare/v1.0.3...master
 export MODSECURITY_VERSION=v1.0.4
