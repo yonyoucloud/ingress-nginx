@@ -312,18 +312,17 @@ ln -s /usr/local/bin/luajit /usr/local/bin/lua
 ln -s "$LUAJIT_INC" /usr/local/include/lua
 
 cd "$BUILD_PATH/opentelemetry-cpp"
-export CXXFLAGS="-DBENCHMARK_HAS_NO_INLINE_ASSEMBLY"
+export CXXFLAGS="-DBENCHMARK_HAS_NO_INLINE_ASSEMBLY -std=c++17"
 cmake -B build -G Ninja -Wno-dev \
         -DOTELCPP_PROTO_PATH="${BUILD_PATH}/opentelemetry-proto/" \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DBUILD_SHARED_LIBS=ON \
-        -DBUILD_TESTING="OFF" \
-        -DBUILD_W3CTRACECONTEXT_TEST="OFF" \
-        -DCMAKE_BUILD_TYPE=None \
-        -DWITH_ABSEIL=ON \
-        -DWITH_STL=ON \
+        -DBUILD_TESTING=OFF \
+        -DBUILD_W3CTRACECONTEXT_TEST=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DWITH_BENCHMARK=OFF \
+        -DWITH_STL=CXX17 \
         -DWITH_EXAMPLES=OFF \
-        -DWITH_ZPAGES=OFF \
         -DWITH_OTLP_GRPC=ON \
         -DWITH_OTLP_HTTP=ON \
         -DWITH_ZIPKIN=ON \

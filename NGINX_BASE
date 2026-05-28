@@ -1,1 +1,1 @@
-gcr.io/k8s-staging-ingress-nginx/nginx:v1.30.2
+us-central1-docker.pkg.dev/k8s-staging-images/ingress-nginx/nginx:v0.3.1
